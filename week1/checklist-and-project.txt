@@ -1,0 +1,27 @@
+✅ Week 1 Checklist - C++ Basics + Simple Project
+🎯 Material Focus:
+ What is C++ and what it does.
+
+ Basic structure of a C++ program.
+
+ Displaying output (cout) and receiving input (cin).
+
+ Data types: int, float, char, string, bool.
+
+ Arithmetic operators: +, -, *, /, %.
+
+ Conditioning: if, else if, else.
+
+  🛠️ Week 1 Project: Simple Calculator
+Objective: Practice input/output, if-else, and operators.
+
+Required features:
+ User can enter 2 numbers.
+
+ User selects operation: add, subtract, multiply, divide.
+
+ The program displays the result.
+
+ Program can detect division by 0 (bonus if there is one).
+
+ Program can be re-run without exiting (using while or do-while) - optional.
