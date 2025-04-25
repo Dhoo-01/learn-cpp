@@ -1,14 +1,14 @@
-#include "temperature_converter.h"
+//#include "temperature_converter.h"
 #include <iostream>
 #include <cstdio>
+#include <iomanip>
+#include <cctype>
 using namespace std;
 
 void convertFromCelsius(double value)
 {
     cout << "Fahrenheit: " << (value * 9 / 5) + 32 << endl;
     cout << "Kelvin: " << value + 273.15 << endl;
-    // cout << "| Fahrenheit | " << "Kelvin |" << endl;
-    //   cout << "| " << (value * 9 / 5) + 32 << "         | " << value + 273.15 << " |" << endl;
 }
 
 void convertFromKelvin(double value)
@@ -25,35 +25,34 @@ void convertFromFahrenheit(double value)
 
 void celsiusLoopConvertResult()
 {
-    cout << "    | Fahrenheit | "
-         << "Kelvin |" << endl;
+    cout << setw(6) << "|" << " Fahrenheit | Kelvin" << setw(4) << "|" << endl;
     for (int i = 0; i <= 100; i += 10)
     {
-        //  printf("perulangan ke-%i\n", i);
-        cout << i << "C ";
-        cout << "| " << (i * 9 / 5) + 32 << "         | " << i + 273.15 << " |" << endl;
+        cout << setw(3) << i << "C | ";
+        cout << setw(10) << (i * 9.0 / 5.0 + 32) << " | ";
+        cout << setw(8) << (i + 273.15) << " |" << endl;
     }
 }
 
 void kelvinLoopConvertResult()
 {
-    cout << "    | Celsius | "
-         << "Fahrenheit |" << endl;
+    cout << setw(7) << "| " << "Celsius " << setw(5) << "| " << "Fahrenheit |" << endl;
     for (int i = 0; i <= 100; i += 10)
     {
-        cout << i << "K ";
-        cout << "| " << i - 273.15 << " | " << (i - 273.15) * 9 / 5 + 32 << " |" << endl;
+        cout << setw(3) << i << "K | ";
+        cout << setw(10) << (i - 273.15) << " | ";
+        cout << setw(10) << ((i - 273.15) * 9.0 / 5.0 + 32) << " |" << endl;
     }
 }
 
 void fahrenheitLoopConvertResult()
 {
-    cout << "    | Celsius | "
-         << "Kelvin |" << endl;
+    cout << setw(7) << "| " << "Celsius " << setw(5) << "| " << "Kelvin " << setw(3) << "|" << endl;
     for (int i = 0; i <= 100; i += 10)
     {
-        cout << i << "F ";
-        cout << "| " << (i - 32) * 5 / 9 << " | " << (i - 32) * 5 / 9 + 273.15 << endl;
+        cout << setw(3) << i << "F | ";
+        cout << setw(10) << ((i - 32) * 5.0 / 9.0) << " | ";
+        cout << setw(8) << ((i - 32) * 5.0 / 9.0 + 273.15) << " |" << endl;
     }
 }
 
@@ -64,23 +63,24 @@ int main()
     char temperatureOption;
     while (isRepeat == 'y')
     {
+        cout << fixed << setprecision(2);
         cout << "Put temperature you want to check/convert! (C/K/F) " << endl;
         cin >> temperatureOption;
 
         cout << "Put value you want to check/convert! " << endl;
         cin >> value;
 
-        if (temperatureOption == 'C')
+        if (temperatureOption == 'c')
         {
             convertFromCelsius(value);
             celsiusLoopConvertResult();
         }
-        else if (temperatureOption == 'K')
+        else if (temperatureOption == 'k')
         {
             convertFromKelvin(value);
             kelvinLoopConvertResult();
         }
-        else if (temperatureOption == 'F')
+        else if (temperatureOption == 'f')
         {
             convertFromFahrenheit(value);
             fahrenheitLoopConvertResult();
